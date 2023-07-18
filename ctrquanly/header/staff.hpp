@@ -1,14 +1,23 @@
 #ifndef __STAFF__
 #define __STAFF__
-
+#include<vector>
+#include"tableInform.hpp"
+#include"food.hpp"
+#include"manager.hpp"
+/*--------CREATE CLASS STAFF-------*/
 class staff
 {
 private:
-    list<tableInform> tableData;
-    list<food> foodData;
+    list<food> menuofStore;
+    vector<tableInform> tableData;
 public:
-    staff(list<monAn> database,int numberOfTable);
-    void getInformOfTable();
+    
+    void updateStaff(manager ql);
+
+    void showAllTableStatus();
+    void choseTable();
+    void openmenu();
+    list<food> getMenu();
 };
 
 #endif

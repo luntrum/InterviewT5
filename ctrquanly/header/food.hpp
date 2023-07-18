@@ -7,7 +7,7 @@ private:
     int id;
     string foodName;
     double price;
-   // int totalNumber;
+    
 public:
     food(string nameofFood, double cost);
     food(int ID,string nameofFood, double cost);
@@ -15,8 +15,16 @@ public:
     void setFoodInform(string nameofFood);
     void setFoodInform(double priceofFood);
     void setFoodInform(string nameofFood,double priceofFood);
-    int getID();
+    int  getID();
+   
     string getFoodName();
     double getFoodPrice();  
+
 };
+
+
+
+
+
+
 #endif

@@ -127,3 +127,14 @@ string food::getFoodName(){
 double food::getFoodPrice(){
     return price;
 }
+/*
+*
+*
+*
+*
+*
+*
+*/
+
+
+

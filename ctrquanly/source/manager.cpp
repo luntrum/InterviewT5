@@ -9,54 +9,9 @@
 * Output:
 *   return: none
 */
-manager::manager(){
-    int i=0,n=0;
-    do
-    {
-        cout<<"1. them mon "<<endl;
-        cout<<"2. xoa mon "<<endl;
-        cout<<"3. sua mon "<<endl;
-        cout<<"4. hien thi danh sach mon"<<endl;
-        cout<<"0. quay lai"<<endl;
-        ENTER_INFORM("lua chon cua ban: ",n,n<0&&n>4,"nhap lua chon trong khoang tu 0 den 4");
-        switch ((managerChoice)n)
-        {
-        case IMPORT_FOOD:
-            importFood();
-            do
-            {
-                int j;
-                cout<<"1. nhap them mon"<<endl;
-                cout<<"0. quay lai"<<endl;
-                ENTER_INFORM("nhap lua chon cua ban: ",j,j<0&&j>1,"nhap lua chon la 0 hoac 1");
-                //cin.ignore(0);
-                if ((int)j==1)
-                {
-                    importFood();
-                }else if ((int)j==0)
-                {
-                    break;
-                }           
-            } while (true);   
-            break;
-        case DELETE_FOOD:
-            deleteFood();
-            break;
-        case UPDATE_FOOD:
-            updateFood();
-            break;
-        case SHOW_MENU:
-            showMenu();
-            break;
-        case QUIT:
-            i=1;
-            break;
-        default: 
-            break;
-        }
-    } while (i==0);
-    
-}
+//manager::manager(){
+  //  contactStore();
+//}
 string importFoodName(){
     string name;
     int i=0;
@@ -114,8 +69,10 @@ void manager::updateFood(){
         for(auto &item:database){
             if(item.getID()==id){
                 is_ID_exist=1;
-                do
-        {
+                cout<<"mon an ban lua chon thay doi la"<<endl;
+                item.showInfo();
+            do
+            {
             cout<<"lua chon thay doi gia tri mon an"<<endl;
             cout<<"1. thay doi ten mon an."<<endl;
             cout<<"2. thay doi gia mon an."<<endl;
@@ -173,6 +130,57 @@ void manager::showMenu(){
 int manager::getNumberTable(){
     return numberTable;
 }
+void manager::contactStore(){
+    int i=0,n=0;
+    do
+    {
+        cout<<"1. them mon "<<endl;
+        cout<<"2. xoa mon "<<endl;
+        cout<<"3. sua mon "<<endl;
+        cout<<"4. hien thi danh sach mon"<<endl;
+        cout<<"0. quay lai"<<endl;
+        ENTER_INFORM("lua chon cua ban: ",n,n<0&&n>4,"nhap lua chon trong khoang tu 0 den 4");
+        switch ((managerChoice)n)
+        {
+        case IMPORT_FOOD:
+            importFood();
+            do
+            {
+                int j;
+                cout<<"1. nhap them mon"<<endl;
+                cout<<"0. quay lai"<<endl;
+                ENTER_INFORM("nhap lua chon cua ban: ",j,j<0&&j>1,"nhap lua chon la 0 hoac 1");
+                //cin.ignore(0);
+                if ((int)j==1)
+                {
+                    importFood();
+                }else if ((int)j==0)
+                {
+                    break;
+                }           
+            } while (true);   
+            break;
+        case DELETE_FOOD:
+            deleteFood();
+            break;
+        case UPDATE_FOOD:
+            updateFood();
+            break;
+        case SHOW_MENU:
+            showMenu();
+            break;
+        case QUIT_CHOICE:
+            i=1;
+            break;
+        default: 
+            break;
+        }
+    } while (i==0);
+}
 list<food> manager::getMenu(){
     return this ->database;
+}
+void manager::setNumberofTable(){
+    ENTER_INFORM("thiet lap so luong ban: ",numberTable,numberTable<1,"vui long nhap so ban lon hon 0");
+
 }
